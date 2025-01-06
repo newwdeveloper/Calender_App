@@ -74,7 +74,7 @@ const Calendar = () => {
       new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1)
     );
   };
-
+  const handleEdit = () => {};
   return (
     <div className="p-4">
       {/* Header */}
@@ -110,10 +110,11 @@ const Calendar = () => {
       <div className="grid grid-cols-7 gap-1">
         {calendarDays.map((date, index) => (
           <div
+            onClick={handleEdit}
             key={index}
             className={`p-4 text-center border ${
               date.isCurrentMonth ? "bg-white" : "bg-gray-100 text-gray-400"
-            } ${date.isCurrentDate ? "bg-red-600" : ""}`}
+            } ${date.isCurrentDate ? "border-4 border-red-500" : ""}`}
           >
             {date.day}
           </div>

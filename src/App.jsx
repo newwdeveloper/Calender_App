@@ -1,12 +1,30 @@
 import "./App.css";
+import AppLayout from "./Components/AppLayout";
 import Calender from "./Components/Calender";
-import Navbar from "./Components/Navbar";
+import Events from "./Components/Events";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <AppLayout />,
+      children: [
+        {
+          path: "/",
+          element: <Calender />,
+        },
+        {
+          path: "/events",
+          element: <Events />,
+        },
+      ],
+    },
+  ]);
   return (
     <div>
-      <Navbar />
-      <Calender />
+      <RouterProvider router={appRouter} />
     </div>
   );
 }
